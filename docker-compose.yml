@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  nest-backend:
+    build:
+      context: ./pokedex-assessment
+      dockerfile: Dockerfile
+    container_name: pokedex-nest
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/app/src
+      - /usr/src/app/node_modules
+  angular-frontend:
+    build:
+      context: ./pokedex-assessment-ng
+      dockerfile: Dockerfile
+    container_name: pokedex-angular
+    ports:
+      - "4200:4200"
